@@ -1,0 +1,4 @@
+[{
+  "modalTitle":"Java Anilyzer",
+  "modalContent": "Program is being made as a project for course Compiler Construction held on Faculty of Mathematics in Belgrade and will be finished on 30.09.2018. Progress can watched on my GitHub account. Program analyse Java code and outputs all semantical errors found in that code.  Program was made using C++ language and tools bison and flexer. "
+  }]

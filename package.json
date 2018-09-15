@@ -1,0 +1,28 @@
+{
+  "name": "cv_site",
+  "version": "0.1.0",
+  "description": "Template for a basic CV Site",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/grunt/bin/grunt build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikola Ristić",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
+    "grunt": "^1.0.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-uglify": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1"
+  },
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-sanitize": "^1.6.9"
+  }
+}

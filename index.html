@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nikola Ristić CV</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="assets/img/Logo-CV.gif">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+    <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+      <!-- Angular library -->
+      <script src="app/lib/angular.min.js"></script>
+
+      <!-- Angular-sanitize library -->
+      <script src="app/lib/angular-sanitize.min.js"></script>
+
+      <!-- jQuery library -->
+      <script src="app/lib/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="app/lib/popper.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="app/lib/bootstrap.min.js"></script>
+
+      <!-- custom icon import -->
+      <link rel="stylesheet" href="assets/css/font-awesome.css">
+
+      <!-- stylesheet of the main page-->
+     <link rel="stylesheet" href="assets/css/main.css">
+
+  </head>
+  <body class="container-fluid" ng-app="CVApp" ng-controller="langCtrl">
+<!-- Languages buttons -->
+<div class="btn-group langa radio " data-spy="affix" data-offset-top="0">
+  <select type="button" class="btn btn-primary " ng-model="lang" ng-change="language()">
+      <option value="" >ENG</option>
+    <option value="SRB">SRB</option>
+  </select>
+</div>
+    <!-- First Grid: Logo & About -->
+    <div id="First" class="row">
+      <!--Menu section -->
+       <div id="logo" class="col-md-6" >
+            <div id="Logo">
+                <h1 class="text-center"><img  src="assets/img/Logo-CV.gif"></h1>
+            </div> <!--end of Logo div -->
+            <div id="Menu" class="text-center">
+                <a href='#'  class="nav flex-column" ng-bind-html="homeTrans"></a>
+                <a href='#work' class="nav flex-column" ng-bind-html="workTrans"></a>
+                <a href='#resume' class="nav flex-column" ng-bind-html="resumeTrans"></a>
+                <a href="#contact" class="nav flex-column" ng-bind-html="contactTrans"></a>
+            </div> <!--end of Menu div-->
+        </div> <!--end of menu section-->
+        <!-- Section About me -->
+        <div id="me" class="col-md-6">
+            <div id="Me" class="text-center">
+                <h1 class="text-center" ng-bind-html="aboutTrans"></h1>
+                <img src="assets/img/IMG_1063.JPG" class="rounded-circle img-fluid">
+                <div ng-bind-html="aboutTextTrans">
+
+                </div>
+            </div><!-- end of Me div-->
+        </div><!-- end of section About me-->
+      </div><!-- End of the first grid -->
+
+      <!-- Second Grid: Work & Resume -->
+      <div id="Second" class="row">
+          <!-- Work section -->
+          <div id="work" class="col-md-6" >
+              <div id="heading">
+                  <h2 class="text-center" ng-bind-html="work1Trans"></h2>
+                  <p class="text-center" ng-bind-html="work2Trans"></p>
+              </div>
+              <!-- div containing projects -->
+              <div id="projects"  ng-controller="projectCtrl"  >
+                      <!-- Fist row -->
+                      <div class="row mx-auto w-100" >
+                          <span class="col-*-6 left" ng-include="project1.image"></span>
+                          <span class="modals" ng-style="showStyle" ng-include="project1.modal"></span>
+                          <span class="col-*-6 right" ng-include="project2.image"></span>
+                          <span class="modals" ng-style="showStyle" ng-include="project2.modal"></span>
+                      </div><!-- end of first row-->
+                      <!--Second row -->
+                      <div class="row mx-auto w-100">
+                          <span class="col-*-6 left" ng-include="project3.image"></span>
+                          <span class="modals" ng-style="showStyle" ng-include="project3.modal"></span>
+                          <span class="col-*-6 right" ng-include="project4.image"></span>
+                          <span class="modals" ng-style="showStyle" ng-include="project4.modal"></span>
+                      </div><!-- end of second row-->
+                      <!-- Third row -->
+                      <div class="row text-center mx-auto w-100">
+                          <span class="col-*-6 left" ng-include="project5.image"></span>
+                          <span class="modals" ng-style="showStyle" ng-include="project5.modal"></span>
+                          <div id='more' class='col-*-6 right text-center'
+                          data-toggle="modal" data-target="#restOfProject" ng-model='workMoreTrans'>More ...
+                          </div>
+                          <div class="modal fade" id="restOfProject">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <!--Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Planina Rtanj</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div> <!-- end of modal-header-->
+                                <!-- Modal body -->
+                                <div class="modal-body" >
+
+                                  <div ng-repeat="project in projects">
+
+                                    <div class="project" ng-include="project.image">Content from blocks goes here</div>
+
+                                  </div>
+
+                                </div><!-- end of model-body-->
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div> <!-- end of model-footer-->
+                              </div> <!-- end of modal content-->
+                            </div><!-- end of modal-dialog-->
+                          </div> <!-- end of modal -->
+                          <!-- Div containing modals for rest of the projects -->
+                          <div  ng-repeat="project in projects">
+                              <div class="modals" ng-style="showStyle" ng-include="project.modal"> </div>
+                          </div><!--end of div containing modals for rest of the projects-->
+                      </div><!-- end of third row -->
+              </div> <!-- end of the div containing projects -->
+          </div> <!-- end of Work section -->
+          <!-- Resume section -->
+          <div id="resume" class="col-md-6" >
+              <div class=" text-center">
+                  <h2 ng-bind-html="resumeTrans"></h2>
+                  <!-- Div containing a table-->
+                  <div class="container-fluid">
+                      <table class="table table-striped table-responsive-md text-left" ng-model="resumeTableTrans">
+                          <tr>
+                              <th ng-bind-html="modalYear"></th>
+                              <th ng-bind-html="modalTitle"></th>
+                              <th ng-bind-html="modalWhere"></th>
+                          </tr>
+                          <tr class="table-light" style="color: black;">
+                              <td>01.12.2016-04.01.2017</td>
+                              <td ng-bind-html="tableRow1"> </td>
+                              <td ng-bind-html="cityState"></td>
+                          </tr>
+                          <tr>
+                              <td>19.03.2016-02.04.2016</td>
+                              <td ng-bind-html="tableRow2"></td>
+                              <td ng-bind-html="cityState"></td>
+                          </tr>
+                          <tr class="table-light" style="color: black;">
+                              <td>04.03.2016-27.05.2016</td>
+                              <td ng-bind-html="tableRow3"></td>
+                              <td ng-bind-html="cityState"></td>
+                          </tr>
+                          <tr>
+                              <td>02.10.2015-25.12.2015</td>
+                              <td ng-bind-html="tableRow4"></td>
+                              <td ng-bind-html="cityState"></td>
+                          </tr>
+                          <tr class="table-light" style="color: black;">
+                              <td>2011-</td>
+                              <td ng-bind-html="tableRow5"></td>
+                              <td ng-bind-html="cityState"></td>
+                          </tr>
+                          <tr >
+                              <td>2010-</td>
+                              <td ng-bind-html="tableRow6"></td>
+                              <td ng-bind-html="cityState"></td>
+                          </tr>
+                      </table>
+                  </div> <!-- end of a div containing a table -->
+                  <p ><a href="https://drive.google.com/folderview?id=0B4n5HTPrhp4ASUZPakp3SFhNNGM&usp=sharing" ng-bind-html="cvLink"></a><p>
+              </div>
+          </div><!-- end of resume section -->
+      </div><!-- End of Second Grid: Work and Resume-->
+
+
+
+      <!-- Third Grid: Swing By & Contact -->
+
+      <div id="Third" class="row">
+          <!-- Contact info section -->
+          <div id="swing" class="col-md-6 text-center" >
+              <div> <!--title div-->
+                  <h1 ng-bind-html="swingByTrans"></h1>
+              </div> <!--end of title div-->
+              <div><!-- contact info div -->
+                  <p>Milete Cerovca 53, Vrčin</p>
+                  <p ng-bind-html="cityState"></p>
+                  <p>064 4447123</p>
+                  <p>NikolaRistic1992@gmail.com</p>
+              </div> <!-- end of contact info div -->
+              <div> <!-- link div -->
+                  <a href="https://www.linkedin.com/in/nikola-ristić-7b48aa91" class='fa fa-lg fa-linkedin'></a>
+                  <a href="skype:nikolaristic92?chat" class='fa fa-lg fa-skype'></a>
+                  <a href="https://www.facebook.com/nikola.ristic.104" class='fa fa-lg fa-facebook-square'></a>
+                  <a href="https://github.com/NikolaR92" class='fa fa-lg fa-github-square'></a>
+              </div> <!--end of link div-->
+          </div><!-- end of contact info section -->
+
+          <!-- Contact form section -->
+          <div id="contact" class="col-md-6">
+              <!--form and title div-->
+              <div>
+                  <h1 ng-bind-html="contact1Trans"></h1>
+                  <p ng-bind-html="contactGetInTrans"></p>
+                  <!--Angular form -->
+                  <div id="form"  ng-controller="formCtrl">
+                  <form name="messageForm" ng-hide="show()">
+                      <!-- Senders name div -->
+                      <div>
+                          <label ng-bind-html="contactNameTrans"></label>
+                          <span class="warning" ng-show="messageForm.Name.$dirty && messageForm.Name.$invalid">
+                              <span ng-show="messageForm.Name.$error.required" ng-bind-html="requiredMessageTrans"> </span>
+                          </span>
+                          <input type="text" ng-model="Name" name="Name" required>
+                      </div> <!-- end of Senders name div -->
+                      <!-- Email of Sender div -->
+                      <div>
+                          <label ng-bind-html="contactEmailTrans"></label>
+                          <span class="warning" ng-show="messageForm.Email.$dirty && messageForm.Email.$invalid">
+                              <span ng-show="messageForm.Email.$error.required" ng-bind-html="requiredMessageTrans"> </span>
+                              <span ng-show="messageForm.Email.$error.email" ng-bind-html="invalidMessageTrans"> </span>
+                          </span>
+                          <input type="email" required ng-model="Email" name="Email">
+                      </div> <!-- end of Email of Sender div -->
+                      <!-- Message from sender div -->
+                      <div>
+                          <label ng-bind-html="contactMessageTrans"></label>
+                          <span class="warning" ng-show="messageForm.Email.$dirty">
+                              <span ng-show="messageForm.Message.$error.required" ng-bind-html="requiredMessageTrans"></span>
+                          </span>
+                          <input type="text" required ng-model="Message" name="Message">
+                      </div> <!--end of Message from sender div -->
+                      <button type="button"  class="btn" ng-click="formsubmit(messageForm.$valid)" ng-disabled="messageForm.$invalid" ng-bind-html="contactSendTrans"></button>
+                  </form>
+                    <pre ng-bind-html="result" ng-show="show()"></pre>
+                      <button type="button" class="btn" ng-show="show()" ng-click="back()" ng-bind-html="contactBackTrans"></button>
+
+
+                  </div>
+                  <!-- end of Angular form-->
+
+              </div> <!-- end of form and title div -->
+
+          </div> <!--End of Contact form section -->
+      </div><!-- end of third grid: Swingby and Contact -->
+
+
+    <footer>
+    </footer>
+
+      <script type="text/javascript" src="app/javascript/cvapp.js"></script>
+
+      <script type="text/javascript" src="app/javascript/formSubmition.js"></script>
+
+      <script type="text/javascript" src="app/javascript/language.js"></script>
+
+      <script type="text/javascript" src="app/javascript/projects.js"></script>
+    <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+          </body>
+</html>

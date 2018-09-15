@@ -1,0 +1,24 @@
+[{
+  "image":"./assets/pages/projects/cvSajt/cvSajtImage.html",
+  "modal":"./assets/pages/projects/cvSajt/cvSajtModal.html"
+  },
+  {
+   "image":"./assets/pages/projects/Kingdom/kingdomImage.html",
+   "modal":"./assets/pages/projects/Kingdom/kingdomModal.html"
+ },
+ {
+   "image":"./assets/pages/projects/Vrcin/vrcinImage.html",
+   "modal":"./assets/pages/projects/Vrcin/vrcinModal.html"
+  },
+  {
+    "image":"./assets/pages/projects/Maline/malineImage.html",
+    "modal":"./assets/pages/projects/Maline/malineModal.html"
+  },
+  {
+    "image":"./assets/pages/projects/JavaAnalizator/javaAnalizatorImage.html",
+    "modal":"./assets/pages/projects/JavaAnalizator/javaAnalizatorModal.html"
+  },
+  {  "image":"./assets/pages/projects/Rtanj/rtanjImage.html",
+    "modal":"./assets/pages/projects/Rtanj/rtanjModal.html"
+  }
+]

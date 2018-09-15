@@ -1,0 +1,4 @@
+[{
+  "modalTitle":"Java Analizator",
+  "modalContent": "Program se trenutno pravi kao projekat za predmet Konstrukcije kompilatora na Matematičkom fakultetu u Beogradu, biće završem do 30.09.2018. Napredak projekta može da se prati na mom GitHub nalogu. Program analizira Java kod i vraća semnatičke greske pronađene u kodu. Program je napravljen korišćenjem jezika C++ i alata Bison i Flexer."
+  }]
